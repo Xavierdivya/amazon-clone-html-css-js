@@ -59,8 +59,6 @@ products.forEach((products) => {
 
         
 })
-
-
     
     function updateCartQuantity(){
         let cartQuantity = 0;
