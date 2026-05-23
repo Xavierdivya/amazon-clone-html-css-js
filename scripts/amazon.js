@@ -1,32 +1,33 @@
 
 import {cart, addToCart} from '../data/cart.js';
 import { products } from '../data/products.js';
+import { formatCurrency } from './utils/money.js';
 
 
 let productshtml='';
 
-products.forEach((products) => {
+products.forEach((product) => {
     productshtml+=`  
     <div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
-              src="${products.image}">
+              src="${product.image}">
           </div>
 
           <div class="product-name limit-text-to-2-lines">
-            ${products.name}
+            ${product.name}
           </div>
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${products.rating.stars * 10}.png">
+              src="images/ratings/rating-${product.rating.stars * 10}.png">
             <div class="product-rating-count link-primary">
-              ${products.rating.count}
+              ${product.rating.count}
             </div>
           </div>
 
           <div class="product-price">
-            ${(products.priceCents/100).toFixed(2)}
+            ${formatCurrency(product.priceCents)}
           </div>
 
           <div class="product-quantity-container">
@@ -52,13 +53,14 @@ products.forEach((products) => {
           </div>
 
           <button class="add-to-cart-button button-primary js-add-to-cart" 
-          data-product-id="${products.id}">
+          data-product-id="${product.id}">
             Add to Cart
           </button>
         </div>`;
 
         
-})
+});
+
     
     function updateCartQuantity(){
         let cartQuantity = 0;
