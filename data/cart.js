@@ -5,10 +5,12 @@ import { products } from "../data/products.js";
   cart=[
   {
     productId:'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
-    quantity:2
+    quantity:2,
+    deliveryOPtionsId : 2,
   },{
     productId:'15b6fc6f-327a-4ec4-896f-486349e85a3d',
-    quantity:1
+    quantity:1,
+    deliveryOPtionsId : '2'
   }
  ];
 }
@@ -31,7 +33,8 @@ import { products } from "../data/products.js";
        }else{
          cart.push({
          productId :productId,
-         quauntity : 1
+         quauntity : 1,
+         deliveryOPtionsId : '1'
        });
        }
  saveToStorage();
