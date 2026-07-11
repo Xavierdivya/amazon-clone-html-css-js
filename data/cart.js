@@ -6,11 +6,11 @@ import { products } from "../data/products.js";
   {
     productId:'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
     quantity:2,
-    deliveryOPtionsId : 2,
+    deliveryOptionsId : 2,
   },{
     productId:'15b6fc6f-327a-4ec4-896f-486349e85a3d',
     quantity:1,
-    deliveryOPtionsId : '2'
+    deliveryOptionsId : '2'
   }
  ];
 }
@@ -34,7 +34,7 @@ import { products } from "../data/products.js";
          cart.push({
          productId :productId,
          quauntity : 1,
-         deliveryOPtionsId : '1'
+         deliveryOptionsId : '1'
        });
        }
  saveToStorage();
@@ -52,5 +52,20 @@ import { products } from "../data/products.js";
       cart = newCart; 
 
       saveToStorage();
+
+}
+
+export function upadateDeliveryOption(productId,deliveryOptionId){
+    let matchingItem;
+
+  cart.forEach((cartItem) => {
+    if(productId === cartItem.productId){
+      matchingItem = cartItem;
+    }
+  });
+
+  matchingItem.deliveryOptionId = deliveryOptionId;
+
+  saveToStorage();
 
 }
